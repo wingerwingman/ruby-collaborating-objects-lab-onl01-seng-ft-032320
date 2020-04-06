@@ -6,10 +6,9 @@ class MP3Importer
   end
   
   def files
-    files = []
-    files = Dir.entries(path)
-    
-    binding.pry
+    Dir.chdir(@path) do | path |
+    Dir.glob("*.mp3")
+  end
   end 
   
   def import
