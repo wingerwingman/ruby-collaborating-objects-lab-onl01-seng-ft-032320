@@ -1,12 +1,16 @@
 class MP3Importer
-  attr_accessor :path, :files
+  attr_accessor :path
   
   def initialize(path)
     @path = path
   end
   
   def files
-    new_files = Dir.new(self.files)
+    files = []
+    Dir.new(self.files).each do |files|
+      files << file if file.lenght > 4
+    end
+    files
     
     binding.pry
   end 
